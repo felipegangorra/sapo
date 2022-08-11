@@ -1,4 +1,4 @@
-package sapo.model;
+package sapo.pessoa;
 
 import java.util.List;
 import java.util.Objects;
