@@ -6,8 +6,17 @@ O Sistema de Acompanhamento de Pessoas da Organização (SAPO) realiza operaçõ
 
 ## Equipe:
 
+Paola Moura - 121111034
+
 Letícia Farias - 121110394
 
 Felipe Gangorra - 121111084
 
-Paola Moura - 121111034
+
+## Atribuição:
+
+Paola Moura || Código - 01 | Testes - 02 ||
+
+Letícia Farias || Código - 02 | Testes - 03 ||
+
+Felipe Gangorra || Código - 03 | Testes - 01 ||
