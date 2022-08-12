@@ -15,13 +15,13 @@ public class AtividadesRepository {
         adiciona(new Atividades(nome, descricao, cpf));
         return null; // vou arrumar
     }
-    private String geraId(String nome){
-//        for(int i = 0; i < nome.split(" ").length;i++){
-//            if(nome[i].equals("a"));
-//        }
-        count++; // Gera o id
-        return null;
-    }
+//    private String geraId(String nome){
+////        for(int i = 0; i < nome.split(" ").length;i++){
+////            if(nome[i].equals("a"));
+////        }
+//        count++; // Gera o id
+//        return null;
+//    }
     public void adiciona (Atividades at){
         //atividades.add(at, at.getId());
         // how to add somethin on a hash map
