@@ -7,8 +7,7 @@ public class TarefasController {
 	public TarefasController(TarefasService ts) {
 		this.ts = ts;
 	}
-	
-	
+
 	public void cadastraTarefa(String atividadeId, String nome, String[] habilidades) {
 		this.ts.cadastraTarefa(atividadeId, nome, habilidades);
 	}
@@ -48,5 +47,5 @@ public class TarefasController {
 	public String exibirTarefa(String idTarefa) {
 		return this.ts.exibirTarefa(idTarefa);
 	}
-
+	
 }

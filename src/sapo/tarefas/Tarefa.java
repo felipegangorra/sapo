@@ -1,5 +1,6 @@
 package sapo.tarefas;
 
+
 import java.util.Arrays;
 
 public class Tarefa {
@@ -11,6 +12,10 @@ public class Tarefa {
 	private String[] habilidades;
 	
 	private int horas;	//horas da tarefa
+
+	private String idTarefas;	//id da tarefa
+  
+	private boolean estado; //se tá concluida
 
 	public Tarefa(String atividadeId, String nome, String[] habilidades, int horas) {
 		this.atividadeId = atividadeId;
@@ -42,7 +47,7 @@ public class Tarefa {
 	public void setHoras(int horas) {
 		this.horas = horas;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
