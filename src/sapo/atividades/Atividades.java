@@ -7,11 +7,10 @@ public class Atividades {
     private String cpf;
     private String id;
 
-    public Atividades(String nome , String descricao, String cpf, String id){
+    public Atividades(String nome , String descricao, String cpf){
         this.nome = nome;
         this.descricao = descricao;
         this.cpf = cpf;
-        this.id = id;
     }
 
     public void setNome(String nome){
@@ -35,6 +34,8 @@ public class Atividades {
     public String getId(){
         return this.id;
     }
+
+    public void setId(String id){this.id = id;}
 
 
 }
