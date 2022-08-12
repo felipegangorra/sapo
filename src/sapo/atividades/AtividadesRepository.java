@@ -5,11 +5,26 @@ import java.util.HashMap;
 public class AtividadesRepository {
 
     HashMap<Atividades,String> atividades = new HashMap<>();
+    Integer count;
 
     AtividadesRepository(){}
 
+    public String cadastraAtividade(String nome , String descricao, String cpf){
+
+        // filtrar 3 primeira inici
+        adiciona(new Atividades(nome, descricao, cpf, count.toString()));
+        return count.toString();
+    }
+    private String geraId(String nome){
+        for(int i = 0; i < nome.split(" ").length;i++){
+            if(nome[i].equals("a"));
+        }
+        count++; // Gera o id
+        return null;
+    }
     public void adiciona (Atividades at){
-        // add atividade
+        atividades.add(at, at.getId());
+        // how to add somethin on a hash map
     }
 
     public void encerrar (String id){

@@ -7,10 +7,33 @@ public class Atividades {
     private String cpf;
     private String id;
 
-    public Atividades(String nome , String descricao, String cpf){
+    public Atividades(String nome , String descricao, String cpf, String id){
         this.nome = nome;
         this.descricao = descricao;
         this.cpf = cpf;
+        this.id = id;
+    }
+
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+    public String getNome(){
+        return this.nome;
+    }
+    public void setDescricao(String descricao){
+        this.descricao = descricao;
+    }
+    public String getDescricao(){
+        return this.descricao;
+    }
+    public void setCpf(String cpf){
+        this.cpf = cpf;
+    }
+    public String getCpf(){
+        return this.cpf;
+    }
+    public String getId(){
+        return this.id;
     }
 
 
