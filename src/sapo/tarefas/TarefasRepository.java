@@ -2,6 +2,7 @@ package sapo.tarefas;
 
 public class TarefasRepository {
 
+<<<<<<< HEAD
 	public void cadastrar(String atividadeId, String nome, String[] habilidades) {
 		
 	}
@@ -42,4 +43,6 @@ public class TarefasRepository {
 		return null;
 	}
 
+=======
+>>>>>>> 9af110a4aab5fb32a0d64dabfbacb408a3be9522
 }

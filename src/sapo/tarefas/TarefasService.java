@@ -1,6 +1,7 @@
 package sapo.tarefas;
 
 public class TarefasService {
+<<<<<<< HEAD
 	
 	private TarefasRepository tr;
 	
@@ -48,5 +49,7 @@ public class TarefasService {
 	public String exibirTarefa(String idTarefa) {
 		return this.tr.exibir(idTarefa);
 	}
+=======
+>>>>>>> 9af110a4aab5fb32a0d64dabfbacb408a3be9522
 
 }
