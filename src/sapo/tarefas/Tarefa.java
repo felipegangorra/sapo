@@ -43,7 +43,7 @@ public class Tarefa {
 		this.horas = horas;
 	}
 	
-	
+	/*
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -80,5 +80,5 @@ public class Tarefa {
 			return false;
 		return true;
 	}
-	
+	*/
 }
