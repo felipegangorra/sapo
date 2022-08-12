@@ -2,47 +2,51 @@ package sapo.tarefas;
 
 public class TarefasController {
 
+	private TarefasService ts;
 	
-	
-	public String cadastraTarefas(String atividadeId, String nome, String[] habilidades) {
-		return null;
+	public TarefasController(TarefasService ts) {
+		this.ts = ts;
 	}
 	
-	public void alterarNomeTarefas(String idTarefa, String novoNome) {
-		return;
+	
+	public void cadastraTarefa(String atividadeId, String nome, String[] habilidades) {
+		this.ts.cadastraTarefa(atividadeId, nome, habilidades);
+	}
+	
+	public void alterarNomeTarefa(String idTarefa, String novoNome) {
+		this.ts.alterarNomeTarefa(idTarefa, novoNome);
 	}
 	
 	public void alterarHabilidadeTarefas(String idTarefa, String[] habilidades) {
-		return;
+		this.ts.alterarHabilidadeTarefa(idTarefa, habilidades);
 	}
 	
-	public void adicionarHorasTarefas(String idTarefa, int horas) {
-		return;
+	public void adicionarHorasTarefa(String idTarefa, int horas) {
+		this.ts.adicionarHorasTarefa(idTarefa, horas);
 	}
 	
-	public void removerTarefas(String idTarefa, int horas) {
-		return;
+	public void removerHorasTarefa(String idTarefa, int horas) {
+		this.ts.removeHorasTarefa(idTarefa, horas);
 	}
 	
-	public void concluirTarefas(String idTarefa) {
-		return;
+	public void concluirTarefa(String idTarefa) {
+		this.ts.concluirTarefa(idTarefa);
 	}
 	
-	public void removerTarefas(String idTarefa) {
-		return;
+	public void removerTarefa(String idTarefa) {
+		this.ts.removerTarefa(idTarefa);
 	}
 	
-	public String exibirTarefas(String idTarefa) {
-		return null;
+	public void associarPessoaTarefa(String cpf, String idTarefa) {
+		this.ts.associarPessoaTarefa(cpf, idTarefa);
 	}
 	
-	public void associarPessoaTarefas(String cpf, String idTarefa) {
-		return;
+	public void removerPessoaTarefa(String cpf, String idTarefa) {
+		this.ts.removerPessoaTarefa(cpf, idTarefa);
 	}
 	
-	public void removerPessoaTarefas(String cpf, String idTarefa) {
-		return;
+	public String exibirTarefa(String idTarefa) {
+		return this.ts.exibirTarefa(idTarefa);
 	}
-	
 	
 }
