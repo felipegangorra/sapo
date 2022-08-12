@@ -1,6 +1,6 @@
 package sapo.tarefas;
 
-<<<<<<< HEAD
+
 import java.util.Arrays;
 
 public class Tarefa {
@@ -12,16 +12,10 @@ public class Tarefa {
 	private String[] habilidades;
 	
 	private int horas;	//horas da tarefa
-=======
-public class Tarefa {
-	
-	private String atividadeId;
-	private String nome;
-	private String[] habilidades;
-	private int horas;	//horas da tarefa
+
 	private String idTarefas;	//id da tarefa
+  
 	private boolean estado; //se tá concluida
->>>>>>> 9af110a4aab5fb32a0d64dabfbacb408a3be9522
 
 	public Tarefa(String atividadeId, String nome, String[] habilidades, int horas) {
 		this.atividadeId = atividadeId;
@@ -29,10 +23,6 @@ public class Tarefa {
 		this.habilidades = habilidades;
 		this.horas = horas;
 	}
-<<<<<<< HEAD
-=======
-	
->>>>>>> 9af110a4aab5fb32a0d64dabfbacb408a3be9522
 
 	public String getNome() {
 		return this.nome;
@@ -57,9 +47,7 @@ public class Tarefa {
 	public void setHoras(int horas) {
 		this.horas = horas;
 	}
-<<<<<<< HEAD
-	
-	/*
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -96,7 +84,5 @@ public class Tarefa {
 			return false;
 		return true;
 	}
-	*/
-=======
->>>>>>> 9af110a4aab5fb32a0d64dabfbacb408a3be9522
+
 }
