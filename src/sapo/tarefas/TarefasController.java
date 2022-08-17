@@ -2,50 +2,52 @@ package sapo.tarefas;
 
 public class TarefasController {
 
+
 	private TarefasService ts;
-	
-	public TarefasController(TarefasService ts) {
+
+	public TarefasController(TarefasService ts){
 		this.ts = ts;
 	}
+	public String cadastraTarefas(String atividadeId, String nome, String[] habilidades) {
 
-	public void cadastraTarefa(String atividadeId, String nome, String[] habilidades) {
-		this.ts.cadastraTarefa(atividadeId, nome, habilidades);
+		return ts.cadastraTarefas(atividadeId,nome,habilidades);
 	}
-	
-	public void alterarNomeTarefa(String idTarefa, String novoNome) {
-		this.ts.alterarNomeTarefa(idTarefa, novoNome);
+
+	public void alterarNomeTarefas(String idTarefa, String novoNome) {
+		ts.alterarNomeTarefas(idTarefa, novoNome);
 	}
-	
+
 	public void alterarHabilidadeTarefas(String idTarefa, String[] habilidades) {
-		this.ts.alterarHabilidadeTarefa(idTarefa, habilidades);
+		ts.alterarHabilidadeTarefas(idTarefa, habilidades);
 	}
-	
-	public void adicionarHorasTarefa(String idTarefa, int horas) {
-		this.ts.adicionarHorasTarefa(idTarefa, horas);
+
+	public void adicionarHorasTarefas(String idTarefa, int horas) {
+		ts.adicionarHorasTarefas(idTarefa, horas);
 	}
-	
+
 	public void removerHorasTarefa(String idTarefa, int horas) {
-		this.ts.removeHorasTarefa(idTarefa, horas);
+		ts.removerHorasTarefa(idTarefa, horas);
+	}
+
+	public void concluirTarefas(String idTarefa) {
+		ts.concluirTarefas(idTarefa);
+	}
+
+	public void removerTarefas(String idTarefa) {
+		ts.removerTarefas(idTarefa);
+	}
+
+	public String exibirTarefas(String idTarefa) {
+		return ts.exibirTarefas(idTarefa);
+	}
+
+	public void associarPessoaTarefas(String cpf, String idTarefa) {
+		ts.associarPessoaTarefas(cpf, idTarefa);
+	}
+
+	public void removerPessoaTarefas(String cpf, String idTarefa) {
+		ts.removerPessoaTarefas(cpf, idTarefa);
 	}
 	
-	public void concluirTarefa(String idTarefa) {
-		this.ts.concluirTarefa(idTarefa);
-	}
-	
-	public void removerTarefa(String idTarefa) {
-		this.ts.removerTarefa(idTarefa);
-	}
-	
-	public void associarPessoaTarefa(String cpf, String idTarefa) {
-		this.ts.associarPessoaTarefa(cpf, idTarefa);
-	}
-	
-	public void removerPessoaTarefa(String cpf, String idTarefa) {
-		this.ts.removerPessoaTarefa(cpf, idTarefa);
-	}
-	
-	public String exibirTarefa(String idTarefa) {
-		return this.ts.exibirTarefa(idTarefa);
-	}
 	
 }

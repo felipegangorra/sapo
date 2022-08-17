@@ -1,52 +1,49 @@
 package sapo.tarefas;
 
 public class TarefasService {
-	
-	private TarefasRepository tr;
-	
-	public TarefasService() {
-		this.tr = new TarefasRepository();
-	}
 
-	public void cadastraTarefa(String atividadeId, String nome, String[] habilidades) {
-		this.tr.cadastrar(atividadeId, nome, habilidades);
-	}
+    private TarefasRepository tr;
 
-	public void alterarNomeTarefa(String idTarefa, String novoNome) {
-		this.tr.alterarNome(idTarefa, novoNome);	
-	}
+    public TarefasService(){
+        this.tr = new TarefasRepository();
+    }
+    public String cadastraTarefas(String atividadeId, String nome, String[] habilidades) {
 
-	public void alterarHabilidadeTarefa(String idTarefa, String[] habilidades) {
-		this.tr.alterarHabilidade(idTarefa, habilidades);
-	}
+        return tr.cadastraTarefas(atividadeId,nome,habilidades);
+    }
 
-	public void adicionarHorasTarefa(String idTarefa, int horas) {
-		this.tr.adicionarHoras(idTarefa, horas);
-	}
+    public void alterarNomeTarefas(String idTarefa, String novoNome) {
+        tr.alterarNomeTarefas(idTarefa, novoNome);
+    }
 
-	public void removeHorasTarefa(String idTarefa, int horas) {
-		this.tr.removeHoras(idTarefa, horas);
-	}
+    public void alterarHabilidadeTarefas(String idTarefa, String[] habilidades) {
+        tr.alterarHabilidadeTarefas(idTarefa, habilidades);
+    }
 
-	public void concluirTarefa(String idTarefa) {
-		this.tr.concluir(idTarefa);
-		
-	}
+    public void adicionarHorasTarefas(String idTarefa, int horas) {
+        tr.adicionarHorasTarefas(idTarefa, horas);
+    }
 
-	public void removerTarefa(String idTarefa) {
-		this.tr.remover(idTarefa);
-	}
+    public void removerHorasTarefa(String idTarefa, int horas) {
+        tr.removerHorasTarefa(idTarefa, horas);
+    }
 
-	public void associarPessoaTarefa(String cpf, String idTarefa) {
-		this.tr.associarPessoa(cpf, idTarefa);
-	}
+    public void concluirTarefas(String idTarefa) {
+        tr.concluirTarefas(idTarefa);
+    }
 
-	public void removerPessoaTarefa(String cpf, String idTarefa) {
-		this.tr.removerPessoa(cpf, idTarefa);
-	}
+    public void removerTarefas(String idTarefa) {
+        tr.removerTarefas(idTarefa);
+    }
 
-	public String exibirTarefa(String idTarefa) {
-		return this.tr.exibir(idTarefa);
-	}
+    public String exibirTarefas(String idTarefa) {
+        return tr.exibirTarefas(idTarefa);
+    }
+    public void associarPessoaTarefas(String cpf, String idTarefa) {
+        tr.associarPessoaTarefas(cpf, idTarefa);
+    }
 
+    public void removerPessoaTarefas(String cpf, String idTarefa) {
+        tr.removerPessoaTarefas(cpf, idTarefa);
+    }
 }

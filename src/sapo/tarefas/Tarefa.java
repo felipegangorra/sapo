@@ -1,28 +1,24 @@
 package sapo.tarefas;
 
-
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Tarefa {
 	
 	private String atividadeId;
-	
 	private String nome;
-	
 	private String[] habilidades;
-	
 	private int horas;	//horas da tarefa
-
 	private String idTarefas;	//id da tarefa
-  
-	private boolean estado; //se tá concluida
+	private boolean estado = false; // true se concluido
 
-	public Tarefa(String atividadeId, String nome, String[] habilidades, int horas) {
+	private ArrayList<String> pessoasAssociadas = new ArrayList<>();
+
+	public Tarefa(String atividadeId, String nome, String[] habilidades) {
 		this.atividadeId = atividadeId;
 		this.nome = nome;
 		this.habilidades = habilidades;
-		this.horas = horas;
 	}
+	
 
 	public String getNome() {
 		return this.nome;
@@ -48,41 +44,14 @@ public class Tarefa {
 		this.horas = horas;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((atividadeId == null) ? 0 : atividadeId.hashCode());
-		result = prime * result + Arrays.hashCode(habilidades);
-		result = prime * result + horas;
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		return result;
-	}
+	public void setIdTarefas(String idTarefas){this.idTarefas = idTarefas;}
+	public String getIdTarefas(){return this.idTarefas;}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Tarefa other = (Tarefa) obj;
-		if (atividadeId == null) {
-			if (other.atividadeId != null)
-				return false;
-		} else if (!atividadeId.equals(other.atividadeId))
-			return false;
-		if (!Arrays.equals(habilidades, other.habilidades))
-			return false;
-		if (horas != other.horas)
-			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		return true;
-	}
+	public void setEstado(boolean estado){this.estado = estado;}
 
+	public boolean getEstado(){return  this.estado;}
+
+	public void addPessoaAssociada(String cpf){pessoasAssociadas.add(cpf);}
+	
+	public void removePessoaAssociada(String cpf){pessoasAssociadas.remove(cpf);}
 }
