@@ -1,5 +1,11 @@
 package sapo.atividades;
 
+import sapo.pessoa.Pessoa;
+import sapo.tarefas.Tarefa;
+import sapo.tarefas.TarefasRepository;
+
+import java.util.HashMap;
+
 public class AtividadesService {
 
     private AtividadesRepository atr;
@@ -32,5 +38,12 @@ public class AtividadesService {
     }
     public void alterarResponsavelAtividade(String id, String cpf){
         atr.alterarResposavel(id, cpf);
+    }
+    public HashMap<String, Tarefa> getTarefas(TarefasRepository tr){
+        return atr.getTarefas(tr); // wont works
+    }
+
+    public void setPessoas(HashMap<String, Pessoa> pessoas) {
+        atr.setPessoas(pessoas);
     }
 }
