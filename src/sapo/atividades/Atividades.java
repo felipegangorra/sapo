@@ -1,5 +1,9 @@
 package sapo.atividades;
 
+import sapo.tarefas.Tarefa;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Atividades {
@@ -7,22 +11,10 @@ public class Atividades {
     private String nome;
     private String descricao;
     private String cpf;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Atividades that = (Atividades) o;
-        return nome.equals(that.nome) && descricao.equals(that.descricao) && cpf.equals(that.cpf) && id.equals(that.id) && estado.equals(that.estado);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nome, descricao, cpf, id, estado);
-    }
-
+    private List<Tarefa> tarefas = new ArrayList<Tarefa>();
     private String id;
     private String estado = "ATIVO";
+
 
     public Atividades(String nome , String descricao, String cpf, String id){
         this.nome = nome;
@@ -53,5 +45,16 @@ public class Atividades {
         return this.id;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Atividades that = (Atividades) o;
+        return nome.equals(that.nome) && descricao.equals(that.descricao) && cpf.equals(that.cpf) && id.equals(that.id) && estado.equals(that.estado);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, descricao, cpf, id, estado);
+    }
 }

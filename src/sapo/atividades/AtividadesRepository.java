@@ -1,22 +1,28 @@
 package sapo.atividades;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.stream.Collectors;
+
+import sapo.pessoa.Pessoa;
+import sapo.pessoa.PessoaRepo;
+import sapo.tarefas.Tarefa;
+import sapo.tarefas.TarefasRepository;
+import sapo.tarefas.TarefasService;
 
 public class AtividadesRepository {
 
     HashMap<String, Atividades> atividades = new HashMap<>();
     Integer count;
-    //PessoaRepository ps;
+    private TarefasService ts;
+    private PessoaRepo pr;
+    private HashMap<String, Pessoa> pessoas;
 
-    AtividadesRepository(){}
-//    AtividadesRepository(PessoaRepository ps){
-//        this.ps = ps;
-//    }
+
+    AtividadesRepository() {
+
+    }
 
     public String cadastraAtividade(String nome , String descricao, String cpf){
-        Atividades at = new Atividades(nome, descricao, cpf, geraId(nome))  ;
+        Atividades at = new Atividades(nome, descricao, cpf, geraId(nome));
         adiciona(at);
         return at.getId();
     }
@@ -24,16 +30,7 @@ public class AtividadesRepository {
         String[] nomeFilter = nome.toUpperCase().replaceAll("[AEIOU]", " ").split(" ");
         count++;
         return nomeFilter[0] + nomeFilter[1] + nomeFilter[2] + "-" + (count - 1); // -1 pois n te como colocar o c++ dps do retorno
-//        Arrays.stream(nome.split(" "))
-//                .filter(l -> "AEIOU".indexOf(l) >= 0)
-//                .collect(Collectors.toList());
-
-//        Arrays.stream(nome.split(" "))
-//                .forEach((v) -> v);
-
-//        for(int i = 0; i < nome.split(" ").length;i++){
-//            if(nome[i].equals("a"));
-//        }
+        // solucao com stream
     }
     public void adiciona (Atividades at){
         atividades.put(at.getId(), at);
@@ -45,6 +42,8 @@ public class AtividadesRepository {
         // validador atv pendente
         // nao pode receber tarefas
         //change estado to encerrado
+
+
     }
 
     public void desativar(String id){
@@ -62,8 +61,8 @@ public class AtividadesRepository {
         return  id +
                 ": " +
                 atividades.get(id).getNome() +
-//                ps.getNome(cpf);
-                "\n" + "===\n" +
+                pr.getNome(atividades.get(id).getCpf()) + "\n" +
+                "===\n" +
                 atividades.get(id).getDescricao() +
                 "\n" + "===\n" +
                 "Tarefas: ";
@@ -78,4 +77,22 @@ public class AtividadesRepository {
     public void alterarResposavel(String id, String cpf){
         atividades.get(id).setCpf(cpf);
     }
+
+    public HashMap<String, Tarefa> getTarefas(TarefasRepository tr){
+        return tr.getAllTarefas(); // wont works
+    }
+//    public HashMap<String, Pessoa> getPessoas(PessoaRepo pr) {
+//        retur
+//    }
+
+    public void setPessoas(HashMap<String, Pessoa> pessoas) {
+        this.pessoas = pessoas;
+    }
+    // verificar tarefas Pendentes
+    // num total de tarefas ativas
+    // ultimas 3 tarefas
+
+    // cpf cnoseguir o nome
+
+    //
 }
