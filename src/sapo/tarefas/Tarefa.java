@@ -45,6 +45,10 @@ public class Tarefa {
 		this.horas = horas;
 	}
 
+	public int getHoras(){
+		return this.horas;
+	}
+
 	public void setIdTarefa(String idTarefa){this.idTarefa = idTarefa;}
 	public String getIdTarefa(){return this.idTarefa;}
 

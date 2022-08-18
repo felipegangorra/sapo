@@ -44,5 +44,6 @@ public class BuscaService {
 
     public String[] exibirHistoricoBusca(int indexBusca){
        // return buscaRepository.getHistoricoBusca()[indexBusca];
+        return null;
     }
 }
