@@ -1,50 +1,32 @@
 package sapo.atividades;
 
-import sapo.pessoa.Pessoa;
-import sapo.tarefas.Tarefa;
-import sapo.tarefas.TarefasRepository;
-
-import java.util.HashMap;
-
 public class AtividadesController {
 
-    private AtividadesService ats;
+    private AtividadesService atividadesService;
 
     public AtividadesController(AtividadesService ats){
 
-        this.ats = ats;
+        this.atividadesService = ats;
     }
     public String cadastrarAtividade(String nome , String descricao, String cpf){
-        ats.cadastrarAtividade(nome,descricao,cpf);
-        return null;
-    }
-    public void adicionaAtividade(Atividades at){
-        ats.adicionaAtividade(at);
+        return atividadesService.cadastrarAtividade(nome,descricao,cpf);
     }
     public void encerrarAtividade(String id){
-        ats.encerrarAtividade(id);
+        atividadesService.encerrarAtividade(id);
     }
     public void desativarAtividade(String id){
-        ats.desativarAtividade(id);
+        atividadesService.desativarAtividade(id);
     }
     public void reabrirAtividade(String id){
-        ats.reabrirAtividade(id);
+        atividadesService.reabrirAtividade(id);
     }
     public String exibirAtividade(String id){
-        ats.exibirAtividade(id);
-        return null;
+        return atividadesService.exibirAtividade(id);
     }
     public void alterarDescricaoAtividade(String id, String cpf){
-        ats.alterarDescricaoAtividade(id, cpf);
+        atividadesService.alterarDescricaoAtividade(id, cpf);
     }
     public void alterarResponsavelAtividade(String id, String cpf){
-        ats.alterarResponsavelAtividade(id, cpf);
-    }
-    public HashMap<String, Tarefa> getTarefas(TarefasRepository tr){
-        return ats.getTarefas(tr); // wont works
-    }
-
-    public void setPessoas(HashMap<String, Pessoa> pessoas){
-        ats.setPessoas(pessoas);
+        atividadesService.alterarResponsavelAtividade(id, cpf);
     }
 }
