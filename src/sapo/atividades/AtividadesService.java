@@ -1,49 +1,56 @@
 package sapo.atividades;
 
-import sapo.pessoa.Pessoa;
-import sapo.tarefas.Tarefa;
-import sapo.tarefas.TarefasRepository;
-
-import java.util.HashMap;
-
 public class AtividadesService {
 
-    private AtividadesRepository atr;
+    private AtividadesRepository atividadesRepository;
+    int count = 0;
 
     public AtividadesService(){
 
-        this.atr = new AtividadesRepository();
+        this.atividadesRepository = new AtividadesRepository();
     }
 
-    public void cadastrarAtividade(String nome , String descricao, String cpf){
-        atr.cadastraAtividade(nome,descricao,cpf);
-    }
-    public void adicionaAtividade(Atividades at){
-        atr.adiciona(at);
+    public String cadastrarAtividade(String nome , String descricao, String cpf){
+
+        Atividade atividade = new Atividade(nome, descricao, cpf, geraIdAtividade(nome));
+        this.atividadesRepository.salvaAtividade(atividade);
+        return atividade.getId();
     }
     public void encerrarAtividade(String id){
-        atr.encerrar(id);
+        if (atividadesRepository.getAtividade(id).getTarefas().size() == 0){
+            atividadesRepository.getAtividade(id).setEstado("ENCERRADO");
+        }else{
+            throw new IllegalArgumentException("Ainda existe tarefas pendentes");
+        }
     }
     public void desativarAtividade(String id){
-        atr.desativar(id);
+        if (atividadesRepository.getAtividade(id).getTarefas().size() == 0){
+            atividadesRepository.getAtividade(id).setEstado("DESATIVADO");
+        }else{
+            throw new IllegalArgumentException("Ainda existe tarefas pendentes");
+        }
     }
     public void reabrirAtividade(String id){
-        atr.reabrir(id);
+        if (atividadesRepository.getAtividade(id).getTarefas().size() == 0){
+            atividadesRepository.getAtividade(id).setEstado("ATIVO");
+        }else{
+            throw new IllegalArgumentException("Ainda existe tarefas pendentes");
+        }
     }
     public String exibirAtividade(String id){
-        return atr.exibir(id);
+        return atividadesRepository.getAtividade(id).toString();
+        // formatar o to string preciso de cpf
     }
-    public void alterarDescricaoAtividade(String id, String cpf){
-        atr.alterarDescriçao(id, cpf);
+    public void alterarDescricaoAtividade(String id, String descricao){
+        atividadesRepository.getAtividade(id).setDescricao(descricao);
     }
     public void alterarResponsavelAtividade(String id, String cpf){
-        atr.alterarResposavel(id, cpf);
-    }
-    public HashMap<String, Tarefa> getTarefas(TarefasRepository tr){
-        return atr.getTarefas(tr); // wont works
+        atividadesRepository.getAtividade(id).setCpf(cpf);
     }
 
-    public void setPessoas(HashMap<String, Pessoa> pessoas) {
-        atr.setPessoas(pessoas);
+    public String geraIdAtividade(String nome){
+        String[] nomeFilter = nome.toUpperCase().replaceAll("[AEIOU]", " ").split(" ");
+        count++;
+        return nomeFilter[0] + nomeFilter[1] + nomeFilter[2] + "-" + (count - 1);
     }
 }
