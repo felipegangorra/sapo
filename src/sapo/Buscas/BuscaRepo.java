@@ -1,4 +1,4 @@
-package Buscas;
+package sapo.Buscas;
 
 
 //+ exibirPessoas(consulta: str): str[]

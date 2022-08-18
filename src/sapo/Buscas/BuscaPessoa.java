@@ -1,4 +1,4 @@
-package Buscas;
+package sapo.Buscas;
 
 import sapo.pessoa.PessoaService;
 
