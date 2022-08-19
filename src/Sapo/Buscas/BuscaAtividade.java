@@ -1,4 +1,4 @@
-package sapo.Buscas;
+package Sapo.Buscas;
 
 public class BuscaAtividade implements Busca{
     private String consulta;

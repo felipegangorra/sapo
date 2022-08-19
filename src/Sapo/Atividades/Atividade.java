@@ -1,6 +1,6 @@
-package sapo.atividades;
+package Sapo.Atividades;
 
-import sapo.tarefas.Tarefa;
+import Sapo.Tarefas.Tarefa;
 
 import java.util.ArrayList;
 import java.util.List;

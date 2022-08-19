@@ -1,7 +1,6 @@
-package sapo;
-import sapo.atividades.*;
-import sapo.pessoa.*;
-import sapo.tarefas.*;
+package Sapo;
+import Sapo.Atividades.*;
+import Sapo.Tarefas.*;
 
 public class Facade {
     private  TarefasController tarefasController;

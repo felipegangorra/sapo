@@ -1,6 +1,6 @@
-package sapo.TarefasGerencias;
+package Sapo.TarefasGerencias;
 
-import sapo.tarefas.Tarefa;
+import Sapo.Tarefas.Tarefa;
 
 import java.util.ArrayList;
 

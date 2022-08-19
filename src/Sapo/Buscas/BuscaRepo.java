@@ -1,4 +1,4 @@
-package sapo.Buscas;
+package Sapo.Buscas;
 
 import java.util.ArrayList;
 
