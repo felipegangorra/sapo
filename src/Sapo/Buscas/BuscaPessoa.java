@@ -1,6 +1,6 @@
-package sapo.Buscas;
+package Sapo.Buscas;
 
-import sapo.pessoa.Pessoa;
+import Sapo.Pessoa.Pessoa;
 
 //A busca deve retornar uma lista de pessoas, em ordem alfabética do nome
 //em que a chave de busca esteja contida no CPF, no nome da pessoa, ou que sejam uma das habilidades

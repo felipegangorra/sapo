@@ -1,21 +1,21 @@
-package sapo.tarefas;
+package Sapo.Tarefas;
 
 public class TarefasService {
 
     private TarefaRepository tarefasRepository;
-    private int count = 0;
+    private static int count = 0;
 
     public TarefasService(){
         this.tarefasRepository = new TarefaRepository();
     }
 
-    private String geraTarefaID(String atividadeId, String nome){
+    public String geraTarefaId(String atividadeId, String nome){
         count++;
         return atividadeId + "-" + (count - 1);
     }
 
     public String cadastraTarefas(String atividadeId, String nome, String[] habilidades) {
-        Tarefa tarefa = new Tarefa(atividadeId, nome, habilidades, geraTarefaID(atividadeId, nome));
+        Tarefa tarefa = new Tarefa(atividadeId, nome, habilidades, geraTarefaId(atividadeId, nome));
         tarefasRepository.salvaTarefa(tarefa);
         return tarefa.getIdTarefa();
     }
