@@ -1,4 +1,4 @@
-package Funções;
+package Sapo.Funções;
 
 public class FunçõesController {
 

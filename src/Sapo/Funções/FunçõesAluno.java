@@ -1,4 +1,4 @@
-package Funções;
+package Sapo.Funções;
 
 import java.util.List;
 import java.util.Set;
