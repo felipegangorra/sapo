@@ -1,4 +1,4 @@
-package sapo.tarefas;
+package Sapo.Tarefas;
 
 public class TarefasController {
 

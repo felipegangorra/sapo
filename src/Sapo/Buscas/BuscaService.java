@@ -1,4 +1,4 @@
-package sapo.Buscas;
+package Sapo.Buscas;
 
 public class BuscaService {
 

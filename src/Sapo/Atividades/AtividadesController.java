@@ -1,4 +1,4 @@
-package sapo.atividades;
+package Sapo.Atividades;
 
 public class AtividadesController {
 

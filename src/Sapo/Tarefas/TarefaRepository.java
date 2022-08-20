@@ -1,4 +1,4 @@
-package sapo.tarefas;
+package Sapo.Tarefas;
 
 import java.util.HashMap;
 
