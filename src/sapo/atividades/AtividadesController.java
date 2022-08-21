@@ -1,5 +1,9 @@
 package sapo.atividades;
 
+import java.util.HashMap;
+
+import sapo.pessoa.Pessoa;
+
 public class AtividadesController {
 
     private AtividadesService atividadesService;
@@ -29,4 +33,10 @@ public class AtividadesController {
     public void alterarResponsavelAtividade(String id, String cpf){
         atividadesService.alterarResponsavelAtividade(id, cpf);
     }
+    
+    //tava dando erro no facade por não ter esse metodo!
+	public void setPessoas(HashMap<String, Pessoa> pessoas) {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -1,5 +1,6 @@
 package sapo.facade;
 import sapo.atividades.*;
+import sapo.pessoa.*;
 import sapo.tarefas.*;
 
 public class Facade {

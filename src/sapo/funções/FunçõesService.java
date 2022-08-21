@@ -23,8 +23,10 @@ public class FunçõesService {
     }
 
     public int pegarNivel(String cpf) {
+		return 0;
     }
 
     public String[] listarPessoas() {
+		return null;
     }
 }
