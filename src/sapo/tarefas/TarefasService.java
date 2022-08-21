@@ -9,13 +9,13 @@ public class TarefasService {
         this.tarefasRepository = new TarefaRepository();
     }
 
-    private String geraTarefaID(String atividadeId, String nome){
+    public String geraTarefaId(String atividadeId, String nome){
         count++;
         return atividadeId + "-" + (count - 1);
     }
 
     public String cadastraTarefas(String atividadeId, String nome, String[] habilidades) {
-        Tarefa tarefa = new Tarefa(atividadeId, nome, habilidades, geraTarefaID(atividadeId, nome));
+        Tarefa tarefa = new Tarefa(atividadeId, nome, habilidades, geraTarefaId(atividadeId, nome));
         tarefasRepository.salvaTarefa(tarefa);
         return tarefa.getIdTarefa();
     }
