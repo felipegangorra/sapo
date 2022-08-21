@@ -1,17 +1,24 @@
 package sapo.pessoa;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 public class Pessoa {
 
 	private String cpf;
 	private String nome;
-	private Set<String> habilidades;
+	private String[] habilidades;
 	private List<String> comentarios;
 	
-	public Pessoa(String cpf, String nome, Set<String> habilidades, List<String> comentarios) {
+	public Pessoa(String cpf, String nome, String[] habilidades) {
+		super();
+		this.cpf = cpf;
+		this.nome = nome;
+		this.habilidades = habilidades;	
+	}
+
+	public Pessoa(String cpf, String nome, String[] habilidades, List<String> comentarios) {
 		super();
 		this.cpf = cpf;
 		this.nome = nome;
@@ -52,11 +59,11 @@ public class Pessoa {
 		this.nome = nome;
 	}
 
-	public Set<String> getHabilidades() {
+	public String[] getHabilidades() {
 		return habilidades;
 	}
 
-	public void setHabilidades(Set<String> habilidades) {
+	public void setHabilidades(String[] habilidades) {
 		this.habilidades = habilidades;
 	}
 
@@ -67,6 +74,11 @@ public class Pessoa {
 	public void setComentarios(List<String> comentarios) {
 		this.comentarios = comentarios;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Pessoa [cpf=" + cpf + ", nome=" + nome + ", habilidades=" + Arrays.toString(habilidades)
+				+ ", comentarios=" + comentarios + "]";
+	}
 	
 }
