@@ -17,6 +17,9 @@ public class AtividadesRepository {
     public Atividade getAtividade(String id) {
         return atividades.get(id);
     }
+    public HashMap<String, Atividade> getAllAtividades() {
+        return this.atividades;
+    }
 
     public void deletaPessoa(String id) {
         if (atividades.containsKey(id)) {

@@ -48,6 +48,10 @@ public class TarefasController {
 	public void removerPessoaTarefas(String cpf, String idTarefa) {
 		ts.removerPessoaTarefas(cpf, idTarefa);
 	}
+
+	public Tarefa getTarefa(String idTarefa){
+		return ts.getTarefa(idTarefa);
+	}
 	
 	
 }

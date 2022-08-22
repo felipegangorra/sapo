@@ -52,6 +52,10 @@ public class Tarefa {
 	public void setIdTarefa(String idTarefa){this.idTarefa = idTarefa;}
 	public String getIdTarefa(){return this.idTarefa;}
 
+	public String getAtividadeId(){
+		return this.atividadeId;
+	}
+
 	public void setEstado(boolean estado){this.estado = estado;}
 
 	public boolean getEstado(){return  this.estado;}
@@ -59,4 +63,8 @@ public class Tarefa {
 	public void addPessoaAssociada(String cpf){pessoasAssociadas.add(cpf);}
 	
 	public void removePessoaAssociada(String cpf){pessoasAssociadas.remove(cpf);}
+
+	public String toStringFormatoAtividades(){
+		return "- " + nome + " - " + idTarefa + "\n";
+	}
 }
