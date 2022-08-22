@@ -1,5 +1,10 @@
 package sapo.buscas;
 
+import sapo.atividades.Atividade;
+import sapo.pessoa.Pessoa;
+
+import java.util.HashMap;
+
 public class BuscaController {
 
     private BuscaService buscaService;
@@ -24,9 +29,9 @@ public class BuscaController {
         return buscaService.buscarTarefas(idAtividade, nome);
     }
 
-    public String[] sugerirTarefas(Cpf id){
-        return buscaService.sugerirTarefas(Cpf id);
-    }
+//    public String[] sugerirTarefas(Cpf id){
+//        return buscaService.sugerirTarefas(Cpf id);
+//    }
 
     public String[] buscasMaisRecentes(int nBuscas){
         return buscaService.buscasMaisRecentes(nBuscas);
@@ -34,5 +39,13 @@ public class BuscaController {
 
     public String[] exibirHistoricoBusca(int indexBusca){
         return buscaService.exibirHistoricoBusca(indexBusca);
+    }
+
+    public void setPessoas(HashMap<String, Pessoa> pessoas){
+        buscaService.setPessoas(pessoas);
+    }
+
+    public void setAtividades(HashMap<String, Atividade> atividades){
+        buscaService.setAtividades(atividades);
     }
 }

@@ -58,4 +58,8 @@ public class TarefasService {
     public void removerPessoaTarefas(String cpf, String idTarefa) {
         tarefasRepository.getTarefa(idTarefa).removePessoaAssociada(cpf);
     }
+
+    public Tarefa getTarefa(String idTarefa) {
+        return tarefasRepository.getTarefa(idTarefa);
+    }
 }

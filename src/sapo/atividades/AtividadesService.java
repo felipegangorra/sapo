@@ -1,5 +1,9 @@
 package sapo.atividades;
 
+import sapo.tarefas.Tarefa;
+
+import java.util.HashMap;
+
 public class AtividadesService {
 
     private AtividadesRepository atividadesRepository;
@@ -52,5 +56,13 @@ public class AtividadesService {
         String[] nomeFilter = nome.toUpperCase().replaceAll("[AEIOU]", " ").split(" ");
         count++;
         return nomeFilter[0] + nomeFilter[1] + nomeFilter[2] + "-" + (count - 1);
+    }
+
+    public void cadastraTarefa(Tarefa tarefa) {
+        atividadesRepository.getAtividade(tarefa.getAtividadeId()).addTarefa(tarefa);
+    }
+
+    public HashMap<String, Atividade> getAllAtividades() {
+        return atividadesRepository.getAllAtividades();
     }
 }
