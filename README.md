@@ -6,8 +6,6 @@ O Sistema de Acompanhamento de Pessoas da Organização (SAPO) realiza operaçõ
 
 ## Equipe:
 
-Paola Moura - 121111034
-
 Letícia Farias - 121110394
 
 Felipe Gangorra - 121111084
