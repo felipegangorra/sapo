@@ -12,7 +12,7 @@ class BuscasTest {
 		facade.cadastraPessoa("089101898-32", "Leticia", habilidades);
 		var idAtividade = facade.cadastrarAtividade("Estudar 00", "fjdfkljsdjklf", "089101898-32");
 		String[] habilidadesAt = {"oop", "organizado"};
-		var tarefaId = facade.cadastrarTarefa(idAtividade, "fazer resumo", habilidadesAt);
+		var tarefaId = facade.cadastraTarefa(idAtividade, "fazer resumo", habilidadesAt);
 
 		for(String a: facade.busca("Leticia linda")){
 			System.out.println(a);

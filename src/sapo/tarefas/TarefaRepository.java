@@ -14,7 +14,12 @@ public class TarefaRepository {
     }
 
     public Tarefa getTarefa(String id) {
-        return tarefas.get(id);
+        if (tarefas.containsKey(id)) {
+            return tarefas.get(id);
+        }else{
+            throw new IllegalArgumentException("Id não existe");
+        }
+
     }
 
     public void deletaTarefa(String id) {

@@ -46,7 +46,15 @@ public class Facade {
         return atividadesController.cadastrarAtividade(nome,descricao,cpf);
     }
 
-    public String cadastrarTarefa(String atividadeId, String nome, String[] habilidades) {
+    /**
+     * Cadastra Tarefa
+     *
+     * @param atividadeId
+     * @param nome
+     * @param habilidades
+     * @return
+     */
+    public String cadastraTarefa(String atividadeId, String nome, String[] habilidades) {
         String tarefaID = tarefasController.cadastraTarefas(atividadeId,nome,habilidades);
         atividadesController.cadastraTarefaNaAtividade(tarefasController.getTarefa(tarefaID));
 
@@ -197,5 +205,111 @@ public class Facade {
      */
     public void alterarResponsavelAtividade(String id, String descricao){
         atividadesController.alterarResponsavelAtividade(id, descricao);
+    }
+
+    /**
+     * Alterar Nome Tarefa
+     *
+     * @param idTarefa
+     * @param novoNome
+     */
+    public void alterarNomeTarefa(String idTarefa, String novoNome){
+        tarefasController.alterarNomeTarefas(idTarefa, novoNome);
+    }
+
+    /**
+     * Retorna o tareffasController
+     *
+     * @return
+     */
+    public TarefasController getTarefasController(){
+        return this.tarefasController;
+    }
+
+    /**
+     * Altera Habilidade Tarefas
+     *
+     * @param idTarefa
+     * @param habilidades
+     */
+    public void alterarHabilidadesTarefas(String idTarefa, String[] habilidades){
+        tarefasController.alterarHabilidadeTarefas(idTarefa, habilidades);
+    }
+
+    /**
+     * Adiciona Horas a tarefa
+     *
+     * @param idTarefa
+     * @param horas
+     */
+    public void adicionarHorasTarefas(String idTarefa, int horas){
+        tarefasController.adicionarHorasTarefas(idTarefa, horas);
+    }
+
+    /**
+     * Remove horas da tareda
+     *
+     * @param idTarefa
+     * @param horas
+     */
+    public void removeHorasTarefas(String idTarefa, int horas) {
+        tarefasController.removeHorasTarefas(idTarefa, horas);
+    }
+
+    /**
+     * Conclui, se tarefas pendentes joga Exeption
+     * @param idTarefa
+     */
+    public void concluirTarefa(String idTarefa) {
+        tarefasController.concluirTarefas(idTarefa);
+    }
+
+    /**
+     * Remove, se Id inexistente joga exception
+     *
+     * @param idTarefa
+     */
+    public void removerTarefa(String idTarefa){
+        tarefasController.removerTarefas(idTarefa);
+    }
+
+    /**
+     * Associa pessoa a tarefa
+     * @param cpf
+     * @param idTarefa
+     */
+    public void associarPessoaTarefa(String cpf, String idTarefa) {
+        tarefasController.associarPessoaTarefas(cpf,idTarefa);
+    }
+
+    /**
+     * Remove determinada pessoa associada
+     * @param cpf
+     * @param idTarefa
+     */
+    public void removePessoaAssociadaTarefa(String cpf, String idTarefa) {
+        tarefasController.removerPessoaTarefas(cpf, idTarefa);
+    }
+
+    /**
+     * Da acesso de atividades p tarefas
+     */
+    private void acessoAtividadesTarefas(){
+        tarefasController.setAtividades(atividadesController.getAllAtividades());
+    }
+
+    private void acessoPessoasTarefas(){
+        tarefasController.setPessoas(pessoaController.getPessoasRepo().getAllPessoas());
+    }
+
+    /**
+     *
+     * @param idTarefa
+     * @return
+     */
+    public String exibirTarefa(String idTarefa) {
+        acessoAtividadesTarefas();
+        acessoPessoasTarefas();
+        return tarefasController.exibirTarefas(idTarefa);
     }
 }

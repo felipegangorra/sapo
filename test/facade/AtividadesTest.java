@@ -20,7 +20,11 @@ class AtividadesTest extends BaseTest{
 			fail("Deveria ter funcionado");
 		}
 	}
-
+	@Test
+	void codigoAtividade(){
+		String id = facade.cadastrarAtividade(NOME_ATIVIDADE_1,DESCRICAO_1,CPF_1);
+		assertEquals(id,"PRJT-0", "devem ser iguais");
+	}
 	@Test
 	void encerrarAtividade(){
 		String IdAtividade = facade.cadastrarAtividade(NOME_ATIVIDADE_1,DESCRICAO_1,CPF_1);
@@ -60,7 +64,6 @@ class AtividadesTest extends BaseTest{
 						"Atividade p promover ino  no campus\n === \nTarefas: 0/20\n",
 				"comparando Exbição Ativades");
 	}
-//+ alterarDescricaoAtividade(atividadeId: str, descricao: str): void
 
 	@Test
 	void alterarDescricaoAtividade(){

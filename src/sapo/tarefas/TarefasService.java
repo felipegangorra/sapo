@@ -1,17 +1,31 @@
 package sapo.tarefas;
 
+import sapo.atividades.Atividade;
+import sapo.pessoa.Pessoa;
+
+import java.util.HashMap;
+
 public class TarefasService {
 
+    private HashMap<String, Atividade> atividades;
+    private HashMap<String, Pessoa> allPessoas;
     private TarefaRepository tarefasRepository;
-    private int count = 0;
+    private int count = -1;
 
     public TarefasService(){
         this.tarefasRepository = new TarefaRepository();
     }
 
+    /**
+     * Gera tarefa id com base do nome da atividade
+     *
+     * @param atividadeId
+     * @param nome
+     * @return
+     */
     public String geraTarefaId(String atividadeId, String nome){
         count++;
-        return atividadeId + "-" + (count - 1);
+        return atividadeId + "-" + count;
     }
 
     public String cadastraTarefas(String atividadeId, String nome, String[] habilidades) {
@@ -29,14 +43,12 @@ public class TarefasService {
     }
 
     public void adicionarHorasTarefas(String idTarefa, int horas) {
-        tarefasRepository.getTarefa(idTarefa).setHoras(horas);
+        tarefasRepository.getTarefa(idTarefa).addHoras(horas);
     }
 
     public void removerHorasTarefa(String idTarefa, int horas) {
-        tarefasRepository.getTarefa(idTarefa).setHoras(horas);
-        // vai diminuir ou ja da a nova hora
-        // precisa de logica a mais???
-        // preciso remover da ordem??
+        tarefasRepository.getTarefa(idTarefa).minusHoras(horas);
+
     }
 
     public void concluirTarefas(String idTarefa) {
@@ -47,9 +59,13 @@ public class TarefasService {
         tarefasRepository.deletaTarefa(idTarefa);
     }
 
-    public String exibirTarefas(String idTarefa) {
-        return tarefasRepository.getTarefa(idTarefa).toString();
-        // Fazer de acordo com especificação
+    private String nomeCpf(String idTarefa){
+        String[] asssociados = tarefasRepository.getTarefa(idTarefa).getPessoasAssociadas();
+        String retorno = new String();
+        for(String a: asssociados){
+            retorno += allPessoas.get(a).getNome() + " - " + allPessoas.get(a).getCpf() + "\n";
+        }
+        return retorno;
     }
     public void associarPessoaTarefas(String cpf, String idTarefa) {
         tarefasRepository.getTarefa(idTarefa).addPessoaAssociada(cpf);
@@ -61,5 +77,22 @@ public class TarefasService {
 
     public Tarefa getTarefa(String idTarefa) {
         return tarefasRepository.getTarefa(idTarefa);
+    }
+
+    public void setAtividades(HashMap<String, Atividade> allAtividades) {
+        this.atividades = allAtividades;
+    }
+
+    public void setPessoas(HashMap<String, Pessoa> allPessoas) {
+        this.allPessoas = allPessoas;
+    }
+
+    public String exibirTarefas(String idTarefa) {
+        return tarefasRepository.getTarefa(idTarefa).getNome() + " - " + tarefasRepository.getTarefa(idTarefa).getIdTarefa()
+                + "\n" + atividades.get(tarefasRepository.getTarefa(idTarefa).getIdTarefa()).getNomeAtividade() + "\n" +
+                tarefasRepository.getTarefa(idTarefa).getHabilidadesString() + "\n" +
+                "(" + tarefasRepository.getTarefa(idTarefa).getHoras() + "horas(s) executada(s))\n" +
+                "===\n" +
+                "Equipe:\n" + nomeCpf(idTarefa);
     }
 }

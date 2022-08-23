@@ -62,7 +62,7 @@ public class AtividadesService {
     public String geraIdAtividade(String nome){
         String[] nomeFilter = nome.toUpperCase().replaceAll("[AEIOU]", " ").split(" ");
         count++;
-        return nomeFilter[0] + nomeFilter[1] + nomeFilter[2] + "-" + (count - 1);
+        return nomeFilter[0] + nomeFilter[1] + nomeFilter[2] + "-" + (count - 2);
     }
 
     public void cadastraTarefa(Tarefa tarefa) {
