@@ -23,6 +23,13 @@ public class Facade {
         this.buscaController = new BuscaController(buscaService);
     }
 
+    /**
+     * Cadastra Pessoa no Sistema
+     *
+     * @param cpf
+     * @param nome
+     * @param habilidades
+     */
     public void cadastraPessoa(String cpf, String nome, String[] habilidades){
         pessoaController.cadastrarPessoa(cpf, nome, habilidades);
     }
@@ -55,5 +62,26 @@ public class Facade {
     public String[] buscaAtividade(String consulta){
         buscaController.setAtividades(atividadesController.getAllAtividades());
         return buscaController.buscarAtividade(consulta);
+    }
+
+    public PessoaController getPessoaController(){return this.pessoaController;}
+
+    public String exibirPessoa(String cpf){
+        return pessoaController.exibirPessoa(cpf);
+    }
+
+    public void alterarNomePessoa(String cpf, String nome){
+        pessoaController.alterarNomePessoa(cpf, nome);
+    }
+    public void removerPessoa(String cpf){
+        pessoaController.removerPessoa(cpf);
+    }
+
+    public void adicionarComentarioPessoaa(String cpf, String comentario, String autorCpf){
+        pessoaController.adicionarComentarioPessoa(cpf, comentario, autorCpf);
+    }
+
+    public String listarComentariosPessoa(String cpf){
+        return pessoaController.listarComentariosPessoa(cpf);
     }
 }

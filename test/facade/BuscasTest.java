@@ -1,4 +1,4 @@
-package sapo;
+package facade;
 
 import org.junit.jupiter.api.Test;
 import sapo.facade.Facade;

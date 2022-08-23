@@ -1,10 +1,10 @@
-package sapo;
+package facade;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class TarefasTest {
+class FuncoesTest {
 
 	@Test
 	void test() {

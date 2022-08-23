@@ -22,12 +22,12 @@ public class BuscaController {
         return buscaService.buscarAtividade(consulta);
     }
 
-    public String[] buscarTarefas(String nome){
-        return buscaService.buscarTarefas(nome);
-    }
-    public String[] buscarTarefas(String idAtividade, String nome){
-        return buscaService.buscarTarefas(idAtividade, nome);
-    }
+//    public String[] buscarTarefas(String nome){
+//        return buscaService.buscarTarefas(nome);
+//    }
+//    public String[] buscarTarefas(String idAtividade, String nome){
+//        return buscaService.buscarTarefas(idAtividade, nome);
+//    }
 
 //    public String[] sugerirTarefas(Cpf id){
 //        return buscaService.sugerirTarefas(Cpf id);
