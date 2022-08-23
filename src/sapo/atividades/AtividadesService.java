@@ -1,11 +1,13 @@
 package sapo.atividades;
 
+import sapo.pessoa.Pessoa;
 import sapo.tarefas.Tarefa;
 
 import java.util.HashMap;
 
 public class AtividadesService {
 
+    private HashMap<String, Pessoa> pessoas;
     private AtividadesRepository atividadesRepository;
     int count = 0;
 
@@ -42,8 +44,13 @@ public class AtividadesService {
         }
     }
     public String exibirAtividade(String id){
-        return atividadesRepository.getAtividade(id).toString();
-        // formatar o to string preciso de cpf
+        return atividadesRepository.getAtividade(id).getId() +": " +atividadesRepository.getAtividade(id).getNomeAtividade()+
+                "\nResponsável: " + pessoas.get(atividadesRepository.getAtividade(id).getCpf()).getNome() + " - "
+                + atividadesRepository.getAtividade(id).getCpf() +
+                "\n === \n"
+                + atividadesRepository.getAtividade(id).getDescricao() + "\n === \n" + "Tarefas: "
+                + atividadesRepository.getAtividade(id).getTarefas().size() + "/20\n" +
+                atividadesRepository.getAtividade(id).tarefasFormatoExibicao();
     }
     public void alterarDescricaoAtividade(String id, String descricao){
         atividadesRepository.getAtividade(id).setDescricao(descricao);
@@ -64,5 +71,13 @@ public class AtividadesService {
 
     public HashMap<String, Atividade> getAllAtividades() {
         return atividadesRepository.getAllAtividades();
+    }
+
+    public Atividade getAtividade(String id){
+        return atividadesRepository.getAtividade(id);
+    }
+
+    public void setPessoas(HashMap<String, Pessoa> allPessoas) {
+        this.pessoas = allPessoas;
     }
 }

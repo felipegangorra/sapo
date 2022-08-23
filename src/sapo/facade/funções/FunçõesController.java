@@ -1,4 +1,4 @@
-package sapo.funções;
+package sapo.facade.funções;
 
 public class FunçõesController {
 

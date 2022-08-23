@@ -1,4 +1,4 @@
-package sapo.funções;
+package sapo.facade.funções;
 
 import sapo.pessoa.Comentario;
 import sapo.pessoa.Pessoa;
