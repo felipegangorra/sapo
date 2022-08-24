@@ -1,4 +1,5 @@
 package sapo.facade;
+
 import sapo.atividades.*;
 import sapo.buscas.BuscaController;
 import sapo.buscas.BuscaService;

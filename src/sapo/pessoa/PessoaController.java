@@ -1,7 +1,5 @@
 package sapo.pessoa;
 
-import java.util.HashMap;
-
 public class PessoaController {
 
     private PessoaService pessoaService;
