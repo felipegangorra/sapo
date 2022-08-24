@@ -14,7 +14,12 @@ public class PessoaRepository {
     }
 
     public Pessoa getPessoa(String cpf) {
-        return pessoas.get(cpf);
+        if(pessoas.containsKey(cpf)){
+            return pessoas.get(cpf);
+        }else{
+            throw new IllegalArgumentException("Não existe essa pessoa");
+        }
+
     }
 
     public HashMap<String, Pessoa> getAllPessoas(){

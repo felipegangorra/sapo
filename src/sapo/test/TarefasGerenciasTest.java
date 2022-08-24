@@ -1,4 +1,4 @@
-package sapo;
+package sapo.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 

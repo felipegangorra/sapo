@@ -1,7 +1,11 @@
 package sapo.tarefas;
 
-public class TarefasController {
+import sapo.atividades.Atividade;
+import sapo.pessoa.Pessoa;
 
+import java.util.HashMap;
+
+public class TarefasController {
 
 	private TarefasService ts;
 
@@ -25,7 +29,7 @@ public class TarefasController {
 		ts.adicionarHorasTarefas(idTarefa, horas);
 	}
 
-	public void removerHorasTarefa(String idTarefa, int horas) {
+	public void removeHorasTarefas(String idTarefa, int horas) {
 		ts.removerHorasTarefa(idTarefa, horas);
 	}
 
@@ -45,13 +49,19 @@ public class TarefasController {
 		ts.associarPessoaTarefas(cpf, idTarefa);
 	}
 
+	public Tarefa getTarefa(String idTarefa){
+		return ts.getTarefa(idTarefa);
+	}
+
 	public void removerPessoaTarefas(String cpf, String idTarefa) {
 		ts.removerPessoaTarefas(cpf, idTarefa);
 	}
 
-	public Tarefa getTarefa(String idTarefa){
-		return ts.getTarefa(idTarefa);
+	public void setAtividades(HashMap<String, Atividade> allAtividades) {
+		ts.setAtividades(allAtividades);
 	}
-	
-	
+
+	public void setPessoas(HashMap<String, Pessoa> allPessoas) {
+		ts.setPessoas(allPessoas);
+	}
 }
