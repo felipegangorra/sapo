@@ -11,12 +11,14 @@ public class BuscaService {
     private BuscaTarefa buscarTarefa;
     private BuscaRepo buscaRepository;
     private BuscaAtividade buscaAtividade;
+    private  BuscaPessoa buscaPessoa;
 
 
     public BuscaService(){
         this.buscaRepository = new BuscaRepo();
         this.buscaAtividade= new BuscaAtividade();
         this.buscarTarefa = new BuscaTarefa();
+
     }
 
     public String[] exibirPessoas(String consulta){
@@ -50,7 +52,7 @@ public class BuscaService {
     }
 
     public String[] exibirHistoricoBusca(int indexBusca){
-       // return buscaRepository.getHistoricoBusca()[indexBusca];
+        // return buscaRepository.getHistoricoBusca()[indexBusca];
         return null;
     }
 
@@ -60,5 +62,9 @@ public class BuscaService {
 
     public void setAtividades(HashMap<String, Atividade> atividades) {
         buscaAtividade.setAtividades(atividades);
+    }
+
+    public String[] buscarTarefas(String idAtividade, String nome) {
+        return null;
     }
 }

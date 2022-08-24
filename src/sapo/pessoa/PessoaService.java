@@ -13,9 +13,19 @@ public class PessoaService {
         this.pr.salvaPessoa(pessoa);
     }
 
+    /**
+     * Retorna uma exibiçao da pessoa
+     *
+     * @param cpf
+     * @return
+     */
     public String exibirPessoa(String cpf){
-        Pessoa pessoa = this.pr.getPessoa(cpf);
-        return pessoa.toString();
+        String retorno = pr.getPessoa(cpf).getNome() + " - " + cpf +
+                "\nComentários:\n";
+        for(Comentario a: pr.getPessoa(cpf).getComentarios()) {
+            retorno += "-" + a.getTexto() + "(" + pr.getPessoa(a.getAutorCpf()).getNome() + ")";
+        }
+        return retorno;
     }
 
     public void alterarNomePessoa(String cpf, String novoNome){
@@ -24,24 +34,20 @@ public class PessoaService {
     }
 
     public void alterarHabilidadePessoa(String cpf, String[] novasHabilidades){
-    	Pessoa pessoa = this.pr.getPessoa(cpf);
-    	pessoa.setHabilidades(novasHabilidades);
+        Pessoa pessoa = this.pr.getPessoa(cpf);
+        pessoa.setHabilidades(novasHabilidades);
     }
 
     public void removerPessoa(String cpf){
-    	pr.deletaPessoa(cpf);
+        pr.deletaPessoa(cpf);
     }
 
     public void adicionarComentarioPessoa(String cpf, String comentario, String autorCpf){
-        return;
+        pr.getPessoa(cpf).setComentario(new Comentario(comentario, autorCpf));
     }
 
     public String listarComentariosPessoa(String cpf){
-    	return null;
-    }
-
-    public String[] busca(String consulta) {
-    	return null;
+        return pr.getPessoa(cpf).getComentariosString();
     }
 
     public PessoaRepository getPessoasRepo(){return this.pr;}

@@ -64,11 +64,10 @@ public class Atividade extends PessoaRepository {
         }
     }
 
-    public String toString(){
+    public String tarefasFormatoExibicao(){
         String retornoLoop = "";
         for(Tarefa a: tarefas){retornoLoop += a.toStringFormatoAtividades();}
-        return id +": " + nome + "\nResponsável: " + "n sei como conseguir nome pessoa" + " - " + cpf +
-                "\n === \n" + descricao + "\n ===\n" + "Tarefas: " + tarefas.size() + "/20\n" + retornoLoop;
+        return retornoLoop;
     }
 
     public void setEstado(String estado){

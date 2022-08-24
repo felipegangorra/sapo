@@ -17,7 +17,7 @@ public class TarefaGerenciais extends Tarefa{
     }
 
     public void setHoras(int horas){
-       this.horas = horas;
+        this.horas = horas;
     }
 
     public ArrayList<String> getIdTarefas(){
