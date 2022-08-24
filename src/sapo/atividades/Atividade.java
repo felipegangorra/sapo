@@ -1,15 +1,12 @@
 package sapo.atividades;
 
-import sapo.pessoa.PessoaRepository;
-import sapo.tarefas.Tarefa;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static java.lang.Integer.parseInt;
+import sapo.tarefas.Tarefa;
 
-public class Atividade extends PessoaRepository {
+public class Atividade {
 
     private String nome;
     private String descricao;
@@ -30,7 +27,7 @@ public class Atividade extends PessoaRepository {
     public void setNome(String nome){
         this.nome = nome;
     }
-    public String getNomeAtividade(){
+    public String getNome(){
         return this.nome;
     }
     public void setDescricao(String descricao){
@@ -49,10 +46,6 @@ public class Atividade extends PessoaRepository {
         return this.id;
     }
 
-    public int getNumero(){
-        String[] resposta = id.split("-");
-        return parseInt(resposta[1]);
-    }
     public List<Tarefa> getTarefas(){
         return this.tarefas;
     }
@@ -62,13 +55,6 @@ public class Atividade extends PessoaRepository {
         }else{
             throw new IllegalStateException("A atividade não está ATIVA");
         }
-    }
-
-    public String toString(){
-        String retornoLoop = "";
-        for(Tarefa a: tarefas){retornoLoop += a.toStringFormatoAtividades();}
-        return id +": " + nome + "\nResponsável: " + "n sei como conseguir nome pessoa" + " - " + cpf +
-                "\n === \n" + descricao + "\n ===\n" + "Tarefas: " + tarefas.size() + "/20\n" + retornoLoop;
     }
 
     public void setEstado(String estado){
@@ -94,13 +80,5 @@ public class Atividade extends PessoaRepository {
     @Override
     public int hashCode() {
         return Objects.hash(nome, descricao, cpf, id, estado);
-    }
-
-    public void nameCpf(){
-
-    }
-
-    public void addTarefa(Tarefa tarefa) {
-        tarefas.add(tarefa);
     }
 }

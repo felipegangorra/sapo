@@ -10,6 +10,7 @@ public class TarefasGenrenciaisService extends TarefasService{
         this.tarefasGerenciaisRepository = new TarefasGerenciaisRepository();
     }
     public String cadastrarTarefaGerencial(String atividadeId, String nome, String[] habilidades, String[] idTarefas) {
+        // add a habilidade de gestão
         TarefaGerenciais tarefaGerenciais = new TarefaGerenciais(atividadeId,nome, habilidades,idTarefas, geraTarefaId(atividadeId, nome));
         tarefasGerenciaisRepository.salvaTarefaGerencial(tarefaGerenciais);
         return  tarefaGerenciais.getIdTarefa();

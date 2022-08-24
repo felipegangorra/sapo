@@ -1,22 +1,13 @@
 package sapo.atividades;
 
-import sapo.tarefas.Tarefa;
-
-import java.util.HashMap;
-
 public class AtividadesController {
 
     private AtividadesService atividadesService;
 
-    public AtividadesController(AtividadesService atividadesService){
+    public AtividadesController(AtividadesService ats){
 
-        this.atividadesService = atividadesService;
+        this.atividadesService = ats;
     }
-
-    public HashMap<String, Atividade> getAllAtividades() {
-        return atividadesService.getAllAtividades();
-    }
-
     public String cadastrarAtividade(String nome , String descricao, String cpf){
         return atividadesService.cadastrarAtividade(nome,descricao,cpf);
     }
@@ -37,9 +28,5 @@ public class AtividadesController {
     }
     public void alterarResponsavelAtividade(String id, String cpf){
         atividadesService.alterarResponsavelAtividade(id, cpf);
-    }
-
-    public void cadastraTarefaNaAtividade(Tarefa tarefa) {
-        atividadesService.cadastraTarefa(tarefa);
     }
 }

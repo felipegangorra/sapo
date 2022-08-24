@@ -1,9 +1,10 @@
 package sapo.pessoa;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class PessoaRepository {
-    private HashMap<String,Pessoa> pessoas;
+    private Map<String,Pessoa> pessoas;
 
     public PessoaRepository() {
         this.pessoas = new HashMap<>();
@@ -15,14 +16,6 @@ public class PessoaRepository {
 
     public Pessoa getPessoa(String cpf) {
         return pessoas.get(cpf);
-    }
-
-    public HashMap<String, Pessoa> getAllPessoas(){
-        if(this.pessoas !=null){
-            return pessoas;
-        } else {
-            throw new IllegalArgumentException("pessoas está vázio");
-        }
     }
 
     public void deletaPessoa(String cpf) {

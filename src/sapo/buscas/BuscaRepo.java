@@ -16,6 +16,5 @@ public class BuscaRepo {
 
     public String[] getHistoricoBusca(){
         //this.historicoBusca.toArray();
-        return null;
     }
 }
