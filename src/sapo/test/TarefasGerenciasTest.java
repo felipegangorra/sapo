@@ -1,8 +1,8 @@
-package sapo;
-
-import static org.junit.jupiter.api.Assertions.*;
+package sapo.test;
 
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.fail;
 
 class TarefasGerenciasTest {
 

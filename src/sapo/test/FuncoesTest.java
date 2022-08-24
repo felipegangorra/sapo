@@ -1,10 +1,10 @@
-package sapo;
-
-import static org.junit.jupiter.api.Assertions.*;
+package sapo.test;
 
 import org.junit.jupiter.api.Test;
 
-class PessoasTest {
+import static org.junit.jupiter.api.Assertions.fail;
+
+class FuncoesTest {
 
 	@Test
 	void test() {
