@@ -12,12 +12,14 @@ public class Pessoa {
 	private List<String> comentarios;
 	
 	public Pessoa(String cpf, String nome, String[] habilidades) {
+		super();
 		this.cpf = cpf;
 		this.nome = nome;
 		this.habilidades = habilidades;	
 	}
 
 	public Pessoa(String cpf, String nome, String[] habilidades, List<String> comentarios) {
+		super();
 		this.cpf = cpf;
 		this.nome = nome;
 		this.habilidades = habilidades;

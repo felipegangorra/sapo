@@ -1,47 +1,44 @@
 package sapo.pessoa;
 
-import java.util.HashMap;
-
 public class PessoaController {
 
-    private PessoaService pessoaService;
+    private PessoaService ps;
 
     public PessoaController(PessoaService ps){
-        this.pessoaService = ps;
+        this.ps = ps;
     }
 
     public void cadastrarPessoa(String cpf, String nome, String[] habilidades){
-        pessoaService.cadastrarPessoa(cpf, nome, habilidades);
+        ps.cadastrarPessoa(cpf, nome, habilidades);
     }
 
     public String exibirPessoa(String cpf){
-        return pessoaService.exibirPessoa(cpf);
+        return ps.exibirPessoa(cpf);
     }
 
     public void alterarNomePessoa(String cpf, String novoNome){
-        pessoaService.alterarNomePessoa(cpf, novoNome);
+        ps.alterarNomePessoa(cpf, novoNome);
     }
 
     public void alterarHabilidadePessoa(String cpf, String[] novasHabilidades){
-        pessoaService.alterarHabilidadePessoa(cpf, novasHabilidades);
+        ps.alterarHabilidadePessoa(cpf, novasHabilidades);
     }
 
     public void removerPessoa(String cpf){
-        pessoaService.removerPessoa(cpf);
+        ps.removerPessoa(cpf);
     }
 
     public void adicionarComentarioPessoa(String cpf, String comentario, String autorCpf){
-        pessoaService.adicionarComentarioPessoa(cpf, comentario, autorCpf);
+        ps.adicionarComentarioPessoa(cpf, comentario, autorCpf);
     }
 
     public String listarComentariosPessoa(String cpf){
-        return pessoaService.listarComentariosPessoa(cpf);
+        return ps.listarComentariosPessoa(cpf);
     }
 
     public PessoaRepository getPessoas() {
-        return pessoaService.getPessoasRepo();
+        return ps.getPessoasRepo();
     }
 
-    public PessoaRepository getPessoasRepo(){return pessoaService.getPessoasRepo();}
-
+    public PessoaRepository getPessoasRepo(){return ps.getPessoasRepo();}
 }
