@@ -11,7 +11,6 @@ public class BuscaService {
     private BuscaTarefa buscarTarefa;
     private BuscaRepo buscaRepository;
     private BuscaAtividade buscaAtividade;
-    private  BuscaPessoa buscaPessoa;
 
 
     public BuscaService(){
